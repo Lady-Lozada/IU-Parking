@@ -1,7 +1,7 @@
-# IU-Parking
+# IU-Parking 🚀
 Parqueadero para la materia Ingenieria de Software
 
-# Instalación
+# Instalación 📋
 El primer paso es clonar(descargar) el proyecto, lo primero es abrir la consola y escribir lo siguiente
 ```
 git clone https://github.com/Lady-Lozada/IU-Parking.git
@@ -22,6 +22,7 @@ git push origin master
 Así, si nuestros cambios se subieron correctamente, los otros podran descargarlos haciendo un git pull origin master
 
 
+## Autores ✒️
 _Menciona a todos aquellos que ayudaron a levantar el proyecto desde sus inicios_
 * **Juan Atehortua**
 * **Faber Fernandez**
