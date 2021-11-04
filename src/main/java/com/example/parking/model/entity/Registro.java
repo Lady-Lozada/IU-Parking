@@ -31,7 +31,7 @@ public class Registro implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "idPlaca")
-	private Vehiculo idU;
+	private Vehiculo idV;
 	
 	@ManyToOne
 	@JoinColumn(name = "idCelda")
@@ -56,12 +56,12 @@ public class Registro implements Serializable {
 		this.fInicio = fInicio;
 	}
 
-	public Vehiculo getIdU() {
-		return idU;
+	public Vehiculo getIdV() {
+		return idV;
 	}
 
-	public void setIdU(Vehiculo idU) {
-		this.idU = idU;
+	public void setIdV(Vehiculo idV) {
+		this.idV = idV;
 	}
 
 	public Celda getIdC() {

@@ -15,12 +15,14 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
+/*!40101 SET NAMES utf8 */;
 
 --
--- Base de datos: `car parking`
+-- Base de datos: `car_parking`
 --
 
+CREATE DATABASE IF NOT EXISTS `car_parking`;
+USE `car_parking`;
 -- --------------------------------------------------------
 
 --
@@ -32,7 +34,7 @@ CREATE TABLE `celda` (
   `seccion` varchar(20) DEFAULT NULL,
   `tipo` varchar(20) DEFAULT NULL,
   `disponibilidad` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -42,9 +44,9 @@ CREATE TABLE `celda` (
 
 CREATE TABLE `pagos` (
   `idPagos` int(11) NOT NULL,
-  `fechaPago` datetime(6) DEFAULT NULL,
+  `fechaPago` datetime DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -54,10 +56,10 @@ CREATE TABLE `pagos` (
 
 CREATE TABLE `registro` (
   `idRegistro` int(11) NOT NULL,
-  `fechaInicio` datetime(6) DEFAULT NULL,
+  `fechaInicio` datetime DEFAULT NULL,
   `idPlaca` int(11) DEFAULT NULL,
   `idCelda` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -72,7 +74,7 @@ CREATE TABLE `usuario` (
   `documento` varchar(20) NOT NULL,
   `num_telefono` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -89,7 +91,7 @@ CREATE TABLE `vehiculo` (
   `color` varchar(20) DEFAULT NULL,
   `idUsuario` int(11) DEFAULT NULL,
   `idCelda` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Índices para tablas volcadas

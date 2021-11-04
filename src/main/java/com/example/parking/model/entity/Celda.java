@@ -53,7 +53,6 @@ public class Celda implements Serializable {
 	}
 	public void setDisponibilidad(String disponibilidad) {
 		this.disponibilidad = disponibilidad;
-	}
-	
+	}	
 	
 }
