@@ -56,8 +56,8 @@ CREATE TABLE `pagos` (
 
 CREATE TABLE `registro` (
   `id_registro` int(11) NOT NULL,
-  `fechaInicio` datetime DEFAULT NULL,
-  `id_placa` int(11) DEFAULT NULL,
+  `fecha_inicio` datetime DEFAULT NULL,
+  `id_vehiculo` int(11) DEFAULT NULL,
   `id_celda` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -115,7 +115,7 @@ ALTER TABLE `pagos`
 --
 ALTER TABLE `registro`
   ADD PRIMARY KEY (`id_registro`),
-  ADD KEY `id_placa` (`id_placa`),
+  ADD KEY `id_vehiculo` (`id_vehiculo`),
   ADD KEY `id_celda` (`id_celda`);
 
 --
@@ -180,7 +180,7 @@ ALTER TABLE `pagos`
 -- Filtros para la tabla `registro`
 --
 ALTER TABLE `registro`
-  ADD CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`id_placa`) REFERENCES `vehiculo` (`id_vehiculo`),
+  ADD CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`id_vehiculo`) REFERENCES `vehiculo` (`id_vehiculo`),
   ADD CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`id_celda`) REFERENCES `celda` (`id_celda`);
 
 --
@@ -198,3 +198,4 @@ COMMIT;
 
 SELECT * FROM celda
 SELECT * FROM usuario
+SELECT * FROM registro

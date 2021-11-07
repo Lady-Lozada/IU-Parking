@@ -13,7 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "celda")
+@Table(name = "registro")
 public class Registro implements Serializable {
 
 	/**
@@ -26,11 +26,11 @@ public class Registro implements Serializable {
 	@Column(name = "id_registro")
 	private int idR;
 	
-	@Column(name = "fechaInicio")
+	@Column(name = "fecha_inicio")
 	private LocalDateTime fInicio;
 	
 	@ManyToOne
-	@JoinColumn(name = "idPlaca")
+	@JoinColumn(name = "id_vehiculo")
 	private Vehiculo idV;
 	
 	@ManyToOne

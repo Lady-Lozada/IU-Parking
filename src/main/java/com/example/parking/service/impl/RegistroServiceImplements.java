@@ -1,5 +1,6 @@
 package com.example.parking.service.impl;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,13 +36,16 @@ public class RegistroServiceImplements implements RegistroService{
 
 	@Override
 	public void createRegistro(Registro registro) {
+		Celda celda = null;
 		boolean existVehiculo = vehiculoRepo.existsById(registro.getIdV().getIdV());
 		if(existVehiculo) {
 			Optional<Celda> existCelda = celdaRepo.findById(registro.getIdC().getIdC());
 			if(existCelda.get().getDisponibilidad().toString().equalsIgnoreCase("SI")) {
+				registro.setfInicio(LocalDateTime.now());
 				registroRepo.save(registro);
-				//existCelda.get().setDisponibilidad("NO");
-				//celdaRepo.save(existCelda);
+				celda = existCelda.get();
+				celda.setDisponibilidad("NO");
+				celdaRepo.save(celda);
 			}/*else {
 				celdaRepo.findAll();
 			}*/
