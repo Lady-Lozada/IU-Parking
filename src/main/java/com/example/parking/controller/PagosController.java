@@ -33,19 +33,19 @@ public class PagosController {
 	
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void createMovie(@RequestBody Pagos pago) {
+	public void createPago(@RequestBody Pagos pago) {
 		pagoService.createPago(pago);
 	}
 	
-	@PutMapping("/update/{id}")
+	/*@PutMapping("/update/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public void editMovie(@RequestBody Pagos pago, @PathVariable int id) {
+	public void editPago(@RequestBody Pagos pago, @PathVariable int id) {
 		pagoService.editPago(pago, id);
-	}
+	}*/
 
 	@DeleteMapping("/delete/{id}")
 	@ResponseStatus(code = HttpStatus.OK)
-	public void deleteMovie( @PathVariable int id) {
+	public void deletePago( @PathVariable int id) {
 		pagoService.deletePagos(id);
 	}
 }

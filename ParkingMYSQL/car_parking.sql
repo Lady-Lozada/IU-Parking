@@ -44,7 +44,7 @@ CREATE TABLE `celda` (
 
 CREATE TABLE `pagos` (
   `id_pagos` int(11) NOT NULL,
-  `fechaPago` datetime DEFAULT NULL,
+  `fecha_pago` datetime DEFAULT NULL,
   `id_usuario` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -197,3 +197,4 @@ COMMIT;
 
 
 SELECT * FROM celda
+SELECT * FROM usuario

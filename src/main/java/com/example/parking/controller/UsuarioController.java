@@ -33,19 +33,19 @@ public class UsuarioController {
 	
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void createMovie(@RequestBody Usuario usr) {
+	public void createUser(@RequestBody Usuario usr) {
 		usuarioService.createUsuario(usr);
 	}
 	
 	@PutMapping("/update/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public void editMovie(@RequestBody Usuario usr, @PathVariable int id) {
+	public void editUser(@RequestBody Usuario usr, @PathVariable int id) {
 		usuarioService.editRegistro(usr, id);
 	}
 
 	@DeleteMapping("/delete/{id}")
 	@ResponseStatus(code = HttpStatus.OK)
-	public void deleteMovie( @PathVariable int id) {
+	public void deleteUser( @PathVariable int id) {
 		usuarioService.deleteRegistro(id);
 	}
 }

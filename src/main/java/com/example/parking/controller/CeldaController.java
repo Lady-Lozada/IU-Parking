@@ -33,13 +33,13 @@ public class CeldaController {
 	
 	@PostMapping("/create")
 	@ResponseStatus(code = HttpStatus.CREATED)
-	public void createMovie(@RequestBody Celda celda) {
+	public void createCelda(@RequestBody Celda celda) {
 		celdaService.createCelda(celda);
 	}
 	
 	@PutMapping("/update/{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public void editMovie(@RequestBody Celda celda, @PathVariable int id) {
+	public void editCelda(@RequestBody Celda celda, @PathVariable int id) {
 		celdaService.editCelda(celda, id);
 	}
 	

@@ -17,7 +17,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "celda")
+@Table(name = "pagos")
 @Data @AllArgsConstructor @NoArgsConstructor 
 public class Pagos implements Serializable {
 
@@ -31,7 +31,7 @@ public class Pagos implements Serializable {
 	@Column(name = "id_pagos")
 	private int idP;
 	
-	@Column(name = "fechaPago")
+	@Column(name = "fecha_pago")
 	private LocalDateTime fPago;
 	
 	@ManyToOne
