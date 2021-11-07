@@ -31,6 +31,8 @@ public class Usuario implements Serializable {
 	private String apellido;
 	
 	private String documento;
+	
+	@Column(name = "num_telefono")
 	private String telefono;
 	
 	@Email
