@@ -24,7 +24,7 @@ public class Usuario implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idUsuario")
+	@Column(name = "id_usuario")
 	private int idU;
 	
 	private String nombre;	
@@ -36,9 +36,9 @@ public class Usuario implements Serializable {
 	@Email
 	private String email;
 	
-	@OneToMany
+	/*@OneToMany
 	@JoinColumn(name = "idVehiculo")
-	private Vehiculo idV;
+	private Vehiculo idV;*/
 	/**
 	 * Setters - Getters
 	 */
@@ -88,14 +88,6 @@ public class Usuario implements Serializable {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-	public Vehiculo getIdV() {
-		return idV;
-	}
-
-	public void setIdV(Vehiculo idV) {
-		this.idV = idV;
 	}
 	
 }

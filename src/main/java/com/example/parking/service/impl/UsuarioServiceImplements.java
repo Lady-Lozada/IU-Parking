@@ -30,10 +30,10 @@ public class UsuarioServiceImplements implements UsuarioService{
 
 	@Override
 	public void createUsuario(Usuario usuario) {
-		boolean existVehiculo = vehiculoRepo.existsById(usuario.getIdV().getIdV());
-		if(existVehiculo) {			
+		//boolean existVehiculo = vehiculoRepo.existsById(usuario.getIdV().getIdV());
+		//if(existVehiculo) {			
 			usuarioRepo.save(usuario);
-		}
+		//}
 	}
 
 	@Override
@@ -45,10 +45,7 @@ public class UsuarioServiceImplements implements UsuarioService{
 			existUsuario.get().setApellido(usuario.getApellido());
 			existUsuario.get().setTelefono(usuario.getTelefono());
 			existUsuario.get().setEmail(usuario.getEmail());
-			boolean existVehiculo = vehiculoRepo.existsById(usuario.getIdV().getIdV());
-			if(existVehiculo) {
-				existUsuario.get().setIdV(usuario.getIdV());
-			}
+			//existUsuario.get().setIdV(usuario.getIdV());
 			usuarioRepo.save(existUsuario.get());
 		}
 	}

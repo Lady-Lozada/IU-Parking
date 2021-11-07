@@ -20,7 +20,7 @@ public class Celda implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idCelda")
+	@Column(name = "id_celda")
 	private int idC;
 	
 	private String seccion;	

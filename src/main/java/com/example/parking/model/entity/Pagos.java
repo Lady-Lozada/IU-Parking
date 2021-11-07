@@ -28,14 +28,14 @@ public class Pagos implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idPagos")
+	@Column(name = "id_pagos")
 	private int idP;
 	
 	@Column(name = "fechaPago")
 	private LocalDateTime fPago;
 	
 	@ManyToOne
-	@JoinColumn(name = "idUsuario")
+	@JoinColumn(name = "id_usuario")
 	private Usuario idU; // Foreign key
 
 	

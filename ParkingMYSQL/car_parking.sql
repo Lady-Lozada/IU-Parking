@@ -15,7 +15,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4mb4 */;
 
 --
 -- Base de datos: `car_parking`
@@ -30,11 +30,11 @@ USE `car_parking`;
 --
 
 CREATE TABLE `celda` (
-  `idCelda` int(11) NOT NULL,
+  `id_celda` int(11) NOT NULL,
   `seccion` varchar(20) DEFAULT NULL,
   `tipo` varchar(20) DEFAULT NULL,
   `disponibilidad` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -43,10 +43,10 @@ CREATE TABLE `celda` (
 --
 
 CREATE TABLE `pagos` (
-  `idPagos` int(11) NOT NULL,
+  `id_pagos` int(11) NOT NULL,
   `fechaPago` datetime DEFAULT NULL,
-  `idUsuario` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_usuario` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -55,11 +55,11 @@ CREATE TABLE `pagos` (
 --
 
 CREATE TABLE `registro` (
-  `idRegistro` int(11) NOT NULL,
+  `id_registro` int(11) NOT NULL,
   `fechaInicio` datetime DEFAULT NULL,
-  `idPlaca` int(11) DEFAULT NULL,
-  `idCelda` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_placa` int(11) DEFAULT NULL,
+  `id_celda` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -68,13 +68,13 @@ CREATE TABLE `registro` (
 --
 
 CREATE TABLE `usuario` (
-  `idUsuario` int(11) NOT NULL,
+  `id_usuario` int(11) NOT NULL,
   `nombre` varchar(50) DEFAULT NULL,
   `apellido` varchar(50) DEFAULT NULL,
   `documento` varchar(20) NOT NULL,
   `num_telefono` varchar(50) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -83,15 +83,15 @@ CREATE TABLE `usuario` (
 --
 
 CREATE TABLE `vehiculo` (
-  `idVehiculo` int(11) NOT NULL,
+  `id_vehiculo` int NOT NULL,
   `placa` varchar(15) NOT NULL,
   `marca` varchar(20) DEFAULT NULL,
   `modelo` varchar(20) DEFAULT NULL,
   `tipo` varchar(20) DEFAULT NULL,
   `color` varchar(20) DEFAULT NULL,
-  `idUsuario` int(11) DEFAULT NULL,
-  `idCelda` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `id_usuario` int DEFAULT NULL,
+  `id_celda` int DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
@@ -101,36 +101,36 @@ CREATE TABLE `vehiculo` (
 -- Indices de la tabla `celda`
 --
 ALTER TABLE `celda`
-  ADD PRIMARY KEY (`idCelda`);
+  ADD PRIMARY KEY (`id_celda`);
 
 --
 -- Indices de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD PRIMARY KEY (`idPagos`),
-  ADD KEY `idUsuario` (`idUsuario`);
+  ADD PRIMARY KEY (`id_pagos`),
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- Indices de la tabla `registro`
 --
 ALTER TABLE `registro`
-  ADD PRIMARY KEY (`idRegistro`),
-  ADD KEY `idPlaca` (`idPlaca`),
-  ADD KEY `idCelda` (`idCelda`);
+  ADD PRIMARY KEY (`id_registro`),
+  ADD KEY `id_placa` (`id_placa`),
+  ADD KEY `id_celda` (`id_celda`);
 
 --
 -- Indices de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  ADD PRIMARY KEY (`idUsuario`);
+  ADD PRIMARY KEY (`id_usuario`);
 
 --
 -- Indices de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  ADD PRIMARY KEY (`idVehiculo`),
-  ADD KEY `idUsuario` (`idUsuario`),
-  ADD KEY `idCelda` (`idCelda`);
+  ADD PRIMARY KEY (`id_vehiculo`),
+  ADD KEY `id_usuario` (`id_usuario`),
+  ADD KEY `id_celda` (`id_celda`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -140,31 +140,31 @@ ALTER TABLE `vehiculo`
 -- AUTO_INCREMENT de la tabla `celda`
 --
 ALTER TABLE `celda`
-  MODIFY `idCelda` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_celda` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  MODIFY `idPagos` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pagos` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `registro`
 --
 ALTER TABLE `registro`
-  MODIFY `idRegistro` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_registro` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_usuario` int NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  MODIFY `idVehiculo` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_vehiculo` int NOT NULL AUTO_INCREMENT;
 
 --
 -- Restricciones para tablas volcadas
@@ -174,23 +174,26 @@ ALTER TABLE `vehiculo`
 -- Filtros para la tabla `pagos`
 --
 ALTER TABLE `pagos`
-  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`);
+  ADD CONSTRAINT `pagos_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 
 --
 -- Filtros para la tabla `registro`
 --
 ALTER TABLE `registro`
-  ADD CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`idPlaca`) REFERENCES `vehiculo` (`idVehiculo`),
-  ADD CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`idCelda`) REFERENCES `celda` (`idCelda`);
+  ADD CONSTRAINT `registro_ibfk_1` FOREIGN KEY (`id_placa`) REFERENCES `vehiculo` (`id_vehiculo`),
+  ADD CONSTRAINT `registro_ibfk_2` FOREIGN KEY (`id_celda`) REFERENCES `celda` (`id_celda`);
 
 --
 -- Filtros para la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`idUsuario`) REFERENCES `usuario` (`idUsuario`),
-  ADD CONSTRAINT `vehiculo_ibfk_2` FOREIGN KEY (`idCelda`) REFERENCES `celda` (`idCelda`);
+  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
+  ADD CONSTRAINT `vehiculo_ibfk_2` FOREIGN KEY (`id_celda`) REFERENCES `celda` (`id_celda`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+SELECT * FROM celda

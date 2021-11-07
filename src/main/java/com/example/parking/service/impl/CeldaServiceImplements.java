@@ -35,20 +35,20 @@ public class CeldaServiceImplements implements CeldaService{
 			existCelda.get().setSeccion(celda.getSeccion());
 			existCelda.get().setTipo(celda.getTipo());
 			existCelda.get().setDisponibilidad(celda.getDisponibilidad());
-			boolean existGender = registroRepo.existsById(celda.getIdC());
-			if(existGender) {
+//			boolean existGender = registroRepo.existsById(celda.getIdC());
+//			if(existGender) {
 				existCelda.get().setIdC(celda.getIdC());;
-			}
+//			}
 			celdaRepo.save(existCelda.get());
 		}
 	}
 
 	@Override
 	public void createCelda(Celda celda) {
-		boolean existCelda = registroRepo.existsById(celda.getIdC());
-		if(existCelda) {
+//		boolean existCelda = registroRepo.existsById(celda.getIdC());
+//		if(existCelda) {
 			celdaRepo.save(celda);
-		}
+//		}
 	}
 
 }

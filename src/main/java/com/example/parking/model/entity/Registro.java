@@ -23,7 +23,7 @@ public class Registro implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idRegistro")
+	@Column(name = "id_registro")
 	private int idR;
 	
 	@Column(name = "fechaInicio")
@@ -34,7 +34,7 @@ public class Registro implements Serializable {
 	private Vehiculo idV;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCelda")
+	@JoinColumn(name = "id_celda")
 	private Celda idC;
 
 	/**

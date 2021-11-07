@@ -22,7 +22,7 @@ public class Vehiculo implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "idVehiculo")
+	@Column(name = "id_vehiculo")
 	private int idV;
 	
 	private String placa;	
@@ -32,11 +32,11 @@ public class Vehiculo implements Serializable {
 	private String color;	
 	
 	@ManyToOne
-	@JoinColumn(name = "idUsuario")
+	@JoinColumn(name = "id_usuario")
 	private Usuario idU;
 	
 	@ManyToOne
-	@JoinColumn(name = "idCelda")
+	@JoinColumn(name = "id_celda")
 	private Celda idC;
 
 	/**
