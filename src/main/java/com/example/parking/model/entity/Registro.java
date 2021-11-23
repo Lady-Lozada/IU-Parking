@@ -29,6 +29,9 @@ public class Registro implements Serializable {
 	@Column(name = "fecha_inicio")
 	private LocalDateTime fInicio;
 	
+	@Column(name = "fecha_fin")
+	private LocalDateTime fFin;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_vehiculo")
 	private Vehiculo idV;
@@ -70,5 +73,13 @@ public class Registro implements Serializable {
 
 	public void setIdC(Celda idC) {
 		this.idC = idC;
+	}
+
+	public LocalDateTime getfFin() {
+		return fFin;
+	}
+
+	public void setfFin(LocalDateTime fFin) {
+		this.fFin = fFin;
 	}	
 }

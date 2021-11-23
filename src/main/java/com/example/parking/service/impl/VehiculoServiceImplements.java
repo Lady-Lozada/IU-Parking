@@ -25,12 +25,6 @@ public class VehiculoServiceImplements implements VehiculoService{
 	public void createVehiculo(Vehiculo vehiculo) {
 		boolean existVehiculo = usuarioRepo.existsById(vehiculo.getIdV());
 		if(!existVehiculo) {
-			/*vehiculo.setTipo(vehiculo.getTipo());
-			vehiculo.setColor(vehiculo.getColor());
-			vehiculo.setIdU(vehiculo.getIdU());
-			vehiculo.setMarca(vehiculo.getMarca());
-			vehiculo.setModelo(vehiculo.getModelo());
-			vehiculo.setPlaca(vehiculo.getPlaca());*/
 			vehiculoRepo.save(vehiculo);
 		}		
 	}
@@ -58,5 +52,4 @@ public class VehiculoServiceImplements implements VehiculoService{
 		vehiculos = (List<Vehiculo>) vehiculoRepo.findAll();
 		return vehiculos;
 	}
-
 }

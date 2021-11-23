@@ -31,16 +31,22 @@ public class RegistroController {
 		return registroService.getAll();
 	}
 	
-	@PostMapping("/create")
+	@PostMapping("/create") // INGRESO DE VEHICULO
 	@ResponseStatus(code = HttpStatus.CREATED)
 	public void createRegistro(@RequestBody Registro reg) {
 		registroService.createRegistro(reg);
 	}
 	
-	@PutMapping("/update/{id}")
+	@PutMapping("/update/{id}") // ACTUALIZACION
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
 	public void editRegistro(@RequestBody Registro reg, @PathVariable int id) {
 		registroService.editRegistro(reg, id);
+	}
+	
+	@PutMapping("/updateSalida/{id}") // SALIDA DE VEHICULO
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public void editSalidaRegistro(@PathVariable int id) {
+		registroService.editSalidaRegistro(id);
 	}
 
 	@DeleteMapping("/delete/{id}")

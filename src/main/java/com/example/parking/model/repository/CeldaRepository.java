@@ -7,5 +7,7 @@ import com.example.parking.model.entity.Celda;
 
 @Repository
 public interface CeldaRepository extends CrudRepository<Celda, Integer> {
+	
+	
 
 }

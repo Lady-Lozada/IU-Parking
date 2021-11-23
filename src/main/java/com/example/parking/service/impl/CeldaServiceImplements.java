@@ -37,7 +37,7 @@ public class CeldaServiceImplements implements CeldaService{
 			existCelda.get().setDisponibilidad(celda.getDisponibilidad());
 //			boolean existGender = registroRepo.existsById(celda.getIdC());
 //			if(existGender) {
-				existCelda.get().setIdC(celda.getIdC());;
+				existCelda.get().setIdC(celda.getIdC());
 //			}
 			celdaRepo.save(existCelda.get());
 		}

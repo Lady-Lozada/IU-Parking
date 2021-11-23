@@ -34,10 +34,6 @@ public class Vehiculo implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "id_usuario")
 	private Usuario idU;
-	
-	@ManyToOne
-	@JoinColumn(name = "id_celda")
-	private Celda idC;
 
 	/**
 	 * Setters - Getters
@@ -98,11 +94,4 @@ public class Vehiculo implements Serializable {
 		this.idU = idU;
 	}
 
-	public Celda getIdC() {
-		return idC;
-	}
-
-	public void setIdC(Celda idC) {
-		this.idC = idC;
-	} 
 }

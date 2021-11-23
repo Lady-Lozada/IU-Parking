@@ -30,4 +30,6 @@ public interface RegistroService {
 	 */
 	public void deleteRegistro(int registroId);
 
+	void editSalidaRegistro(int registroId);
+
 }

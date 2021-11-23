@@ -47,4 +47,5 @@ public class VehiculoController {
 	public void deleteVehiculo( @PathVariable int id) {
 		vehiculoService.deleteMovie(id);
 	}*/
+	
 }

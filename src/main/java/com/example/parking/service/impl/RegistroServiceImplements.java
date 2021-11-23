@@ -42,7 +42,7 @@ public class RegistroServiceImplements implements RegistroService{
 			Optional<Celda> existCelda = celdaRepo.findById(registro.getIdC().getIdC());
 			if(existCelda.get().getDisponibilidad().toString().equalsIgnoreCase("SI")) {
 				registro.setfInicio(LocalDateTime.now());
-				registroRepo.save(registro);
+				registroRepo.save(registro);	
 				celda = existCelda.get();
 				celda.setDisponibilidad("NO");
 				celdaRepo.save(celda);
@@ -64,6 +64,19 @@ public class RegistroServiceImplements implements RegistroService{
 		}
 	}
 
+	@Override
+	public void editSalidaRegistro(int registroId) {
+		Celda celda = null;
+		Optional<Registro> existRegistro = registroRepo.findById(registroId);
+		Optional<Celda> existCelda = celdaRepo.findById(existRegistro.get().getIdC().getIdC());
+		if(existRegistro.isPresent()) {
+			existRegistro.get().setfFin(LocalDateTime.now());
+			registroRepo.save(existRegistro.get());
+			celda = existCelda.get();
+			celda.setDisponibilidad("SI");
+			celdaRepo.save(celda);
+		}
+	}
 	@Override
 	public void deleteRegistro(int registroId) {
 		Optional<Registro> existRegistro = registroRepo.findById(registroId);

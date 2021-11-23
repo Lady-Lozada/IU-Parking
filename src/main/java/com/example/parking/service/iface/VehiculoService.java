@@ -24,4 +24,5 @@ public interface VehiculoService {
 	 * @param idVehiculo
 	 */
 	public void editVehiculo(Vehiculo vehiculo, int idVehiculo);
+
 }

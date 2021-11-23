@@ -57,6 +57,7 @@ CREATE TABLE `pagos` (
 CREATE TABLE `registro` (
   `id_registro` int(11) NOT NULL,
   `fecha_inicio` datetime DEFAULT NULL,
+  `fecha_fin` datetime DEFAULT NULL,
   `id_vehiculo` int(11) DEFAULT NULL,
   `id_celda` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -89,8 +90,7 @@ CREATE TABLE `vehiculo` (
   `modelo` varchar(20) DEFAULT NULL,
   `tipo` varchar(20) DEFAULT NULL,
   `color` varchar(20) DEFAULT NULL,
-  `id_usuario` int DEFAULT NULL,
-  `id_celda` int DEFAULT NULL
+  `id_usuario` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -129,8 +129,7 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`id_vehiculo`),
-  ADD KEY `id_usuario` (`id_usuario`),
-  ADD KEY `id_celda` (`id_celda`);
+  ADD KEY `id_usuario` (`id_usuario`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -187,8 +186,7 @@ ALTER TABLE `registro`
 -- Filtros para la tabla `vehiculo`
 --
 ALTER TABLE `vehiculo`
-  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`),
-  ADD CONSTRAINT `vehiculo_ibfk_2` FOREIGN KEY (`id_celda`) REFERENCES `celda` (`id_celda`);
+  ADD CONSTRAINT `vehiculo_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id_usuario`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
